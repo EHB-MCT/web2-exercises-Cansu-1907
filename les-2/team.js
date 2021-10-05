@@ -1,8 +1,9 @@
-import Pokemon from "./index.js";
 
-export default class Team extends Pokemon {
+
+export default class Team {
   constructor(teamname) {
-    super();
     this.teamname = "example teamname";
+    this.trainer = 'example trainername';
+    this.roster = [];
   }
 }

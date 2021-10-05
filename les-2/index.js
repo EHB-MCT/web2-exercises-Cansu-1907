@@ -1,6 +1,8 @@
 "use strict";
 
-const list = [];
+// import team from "./team.js";
+
+let list = [];
 let pokemon = [];
 function dataAPI() {
   fetch(`https://pokeapi.co/api/v2/pokemon`)
@@ -25,17 +27,22 @@ dataAPI();
 window.onload = function () {
   dataAPI();
 
-  setTimeout(buildList, 4000);
+  setTimeout(buildList, 1000);
 
   function buildList() {
-    let html = `<div>
-    <img class="img" src="" alt="">
-    <div class="card-body">
-        <h5 class="name"></h5>
-        <p class="type"></p>
-        <a href="" class="button">add to team</a>
-    </div>
-</div>`;
+    console.log(pokemon);
+    let html = "";
+    pokemon.forEach((e) => {
+      html += `<div>
+      <img class="img" src="${e.sprites.back_default}" alt="">
+      <div class="card-body">
+          <h5 class="name">${e.name}</h5>
+          <p class="type">${e.types}</p>
+          <a href="" class="button">add to team</a>
+      </div>
+  </div>`;
+    });
+    document.getElementById("list").innerHTML = html;
   }
 };
 
@@ -43,10 +50,4 @@ window.onload = function () {
 // async function getDataV2() {
 //     let resp = await fetch('');
 //     return await resp.json
-// }
-
-// export default class Pokemon {
-//   constructor(name) {
-//     this.name = name;
-//   }
 // }
