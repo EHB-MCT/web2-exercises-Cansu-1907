@@ -1,6 +1,4 @@
-"use strict";
-
-// import team from "./team.js";
+import Team from "./team.js";
 
 let list = [];
 let pokemon = [];
@@ -9,7 +7,6 @@ function dataAPI() {
     .then((response) => response.json())
     .then((data) => {
       list = data.results;
-      console.log(data);
       //loop over the list for each pokemon
       for (let element of list) {
         fetch(element.url)
@@ -44,6 +41,8 @@ window.onload = function () {
     });
     document.getElementById("list").innerHTML = html;
   }
+  let team1 = new Team();
+  console.log(team1.describe);
 };
 
 //-------SHORTCUT-------//
@@ -51,3 +50,6 @@ window.onload = function () {
 //     let resp = await fetch('');
 //     return await resp.json
 // }
+
+// MODULE ERROR?
+// go to index.html and put at script a type="module"!!!!!
