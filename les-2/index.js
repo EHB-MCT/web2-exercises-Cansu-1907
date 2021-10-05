@@ -15,7 +15,7 @@ function dataAPI() {
             return response.json();
           })
           .then((data) => {
-            pokemon.push(data);
+            pokemon.push(dataa);
           });
       }
     });
