@@ -35,7 +35,7 @@ window.onload = function () {
       <div class="card-body">
           <h5 class="name">${e.name}</h5>
           <p class="type">${e.types[0].type.name}</p>
-          <a href="" class="button">add to team</a>
+          <a href="${e.name}" class="button">add to team</a>
       </div>
   </div>`;
     });
@@ -47,8 +47,21 @@ window.onload = function () {
   let infoContainer = document.getElementById("info");
   infoContainer.innerHTML = team1.describe();
 
-  let buttons = document.querySelectorAll(".button");
-  console.log(buttons);
+  setTimeout(() => {
+    let buttons = document.querySelectorAll(".button");
+    // console.log(buttons);
+
+    buttons.forEach((element) => {
+      // console.log(element);
+      element.addEventListener("click", (event) => {
+        event.preventDefault();
+        // console.log(event.target.getAttribute("href"));
+        team1.addPokemon(event.target.getAttribute("href"));
+        console.log(team1.roster);
+        infoContainer.innerHTML = team1.describe();
+      });
+    });
+  }, 2000);
 };
 
 //-------SHORTCUT-------//

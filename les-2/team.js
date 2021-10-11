@@ -12,13 +12,13 @@ export default class Team {
   }
 
   addPokemon(pokemon) {
-    if (this.roster.length <= 6) {
+    if (this.roster.length < 6) {
       if (!this.roster.includes(pokemon)) {
+        this.roster.push(pokemon);
         alert(`The pokemon ${pokemon} has been succesfully added to the team!`);
       } else {
         alert("This pokemon is already part of your roster");
       }
-      // this.roster.push(pokemon);
     } else {
       alert("The roster is full");
     }
