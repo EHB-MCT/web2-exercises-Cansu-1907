@@ -34,15 +34,21 @@ window.onload = function () {
       <img class="img" src="${e.sprites.back_default}" alt="">
       <div class="card-body">
           <h5 class="name">${e.name}</h5>
-          <p class="type">${e.types}</p>
+          <p class="type">${e.types[0].type.name}</p>
           <a href="" class="button">add to team</a>
       </div>
   </div>`;
     });
     document.getElementById("list").innerHTML = html;
   }
-  let team1 = new Team();
-  console.log(team1.describe);
+  let team1 = new Team("Instinct", "Ash");
+  console.log(team1.describe());
+
+  let infoContainer = document.getElementById("info");
+  infoContainer.innerHTML = team1.describe();
+
+  let buttons = document.querySelectorAll(".button");
+  console.log(buttons);
 };
 
 //-------SHORTCUT-------//
