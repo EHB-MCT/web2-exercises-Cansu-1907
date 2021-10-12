@@ -3,17 +3,14 @@ function randomNumber(max, min) {
 }
 
 window.onload = function () {
-  //   let form = document.getElementById("form");
   let randoNr = 0;
   let input = document.getElementById("inputfield");
-  //button
   let button = document.getElementById("button");
   button.addEventListener("click", (e) => {
     e.preventDefault();
     let userNr = parseInt(input.value);
     randoNr = randomNumber(1, 20);
     console.log(randoNr);
-    // console.log("button works");
     console.log(userNr);
 
     if (userNr > 20) {
